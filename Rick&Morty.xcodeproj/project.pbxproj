@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		186AB9A22FB5A87200B3F765 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 186AB9A12FB5A87200B3F765 /* SDWebImageSwiftUI */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		186AB9502FB3950D00B3F765 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				186AB9A22FB5A87200B3F765 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 				186AB9442FB3950B00B3F765 /* Rick&Morty */,
 				186AB9522FB3950D00B3F765 /* Rick&MortyTests */,
 				186AB95C2FB3950D00B3F765 /* Rick&MortyUITests */,
+				186AB99D2FB51B1000B3F765 /* Frameworks */,
 				186AB9432FB3950B00B3F765 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +96,13 @@
 				186AB9592FB3950D00B3F765 /* Rick&MortyUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		186AB99D2FB51B1000B3F765 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +125,7 @@
 			);
 			name = "Rick&Morty";
 			packageProductDependencies = (
+				186AB9A12FB5A87200B3F765 /* SDWebImageSwiftUI */,
 			);
 			productName = "Rick&Morty";
 			productReference = 186AB9422FB3950B00B3F765 /* Rick&Morty.app */;
@@ -195,6 +209,9 @@
 			);
 			mainGroup = 186AB9392FB3950B00B3F765;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				186AB9A02FB5A81400B3F765 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 186AB9432FB3950B00B3F765 /* Products */;
 			projectDirPath = "";
@@ -550,6 +567,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		186AB9A02FB5A81400B3F765 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		186AB9A12FB5A87200B3F765 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 186AB9A02FB5A81400B3F765 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 186AB93A2FB3950B00B3F765 /* Project object */;
 }

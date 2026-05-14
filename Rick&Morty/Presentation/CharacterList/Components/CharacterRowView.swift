@@ -6,23 +6,20 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CharacterRowView: View {
     let character: Character
     
     var body: some View {
         HStack(spacing: 14) {
-            // Lazy content fetching using default asynchronous styling wrappers
-            AsyncImage(url: URL(string: character.imageURL)) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-            } placeholder: {
-                Color(.systemGray5)
-                    .overlay(ProgressView())
-            }
-            .frame(width: 54, height: 54)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
+            
+            // image loading
+            WebImage(url: URL(string: character.imageURLString))
+                .resizable()
+                .indicator(.activity)
+                .frame(width: 54, height: 54)
+                .clipShape(Circle())
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(character.name)
@@ -31,7 +28,7 @@ struct CharacterRowView: View {
                 
                 HStack(spacing: 6) {
                     Circle()
-                        .fill(statusIndicatorColor(character.status))
+                        .fill(statusIndicatorColor(character.status.rawValue))
                         .frame(width: 8, height: 8)
                     
                     Text("\(character.status) — \(character.species)")
@@ -52,6 +49,4 @@ struct CharacterRowView: View {
         }
     }
 }
-//#Preview {
-//    CharacterRowView(character: .init(id: "1", name: "Test Character", imageURL: "", status: "Alive", species: "Human"))
-//}
+
