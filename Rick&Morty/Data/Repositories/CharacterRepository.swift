@@ -14,6 +14,8 @@ final class CharacterRepository: CharacterRepositoryProtocol {
     private let networkService: NetworkServiceProtocol
     private let baseURLString = "https://rickandmortyapi.com/api"
     
+    private let dbLayer = DBLayer()
+    
     // Inject the abstracted network contract
     init(networkService: NetworkServiceProtocol) {
         self.networkService = networkService
@@ -21,6 +23,7 @@ final class CharacterRepository: CharacterRepositoryProtocol {
     
     /// Fetches a paginated list of characters, appending an optional name filter query.
     func fetchCharacters(page: Int, name: String?) async throws -> [Character] {
+        
         // Build base endpoint components
         var urlComponents = URLComponents(string: "\(baseURLString)/character")
         
