@@ -3,7 +3,7 @@ name: iOS
 on: push
 
 jobs:
-  build:
+  build-and-test:
     runs-on: macos-15
     steps:
       - name: Get the code
@@ -12,8 +12,9 @@ jobs:
       - name: Which Xcode is active
         run: xcodebuild -version
 
-      - name: What can we run on
+      - name: Build and test
         run: |
-          xcodebuild -showdestinations \
+          xcodebuild test \
             -project "Rick&Morty.xcodeproj" \
-            -scheme "Rick&Morty"
+            -scheme "Rick&Morty" \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.5'
