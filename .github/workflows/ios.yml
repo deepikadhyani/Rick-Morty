@@ -1,0 +1,19 @@
+name: iOS
+
+on: push
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Which Xcode is active
+        run: xcodebuild -version
+
+      - name: What can we run on
+        run: |
+          xcodebuild -showdestinations \
+            -project "Rick&Morty.xcodeproj" \
+            -scheme "Rick&Morty"
