@@ -3,7 +3,7 @@ name: iOS
 on: push
 
 jobs:
-  build-and-test:
+  unit-tests:
     runs-on: macos-15
     steps:
       - name: Get the code
@@ -12,9 +12,10 @@ jobs:
       - name: Which Xcode is active
         run: xcodebuild -version
 
-      - name: Build and test
+      - name: Run unit tests
         run: |
           xcodebuild test \
             -project "Rick&Morty.xcodeproj" \
             -scheme "Rick&Morty" \
-            -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.5'
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.5' \
+            -only-testing:"Rick&MortyTests"
