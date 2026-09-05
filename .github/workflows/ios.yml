@@ -12,9 +12,21 @@ jobs:
       - name: Which Xcode is active
         run: xcodebuild -version
 
-      - name: Run unit tests
+      - name: Resolve dependencies
         run: |
-          xcodebuild test \
+          xcodebuild -resolvePackageDependencies \
+            -project "Rick&Morty.xcodeproj"
+
+      - name: Build for testing
+        run: |
+          xcodebuild build-for-testing \
+            -project "Rick&Morty.xcodeproj" \
+            -scheme "Rick&Morty" \
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.5'
+
+      - name: Run tests
+        run: |
+          xcodebuild test-without-building \
             -project "Rick&Morty.xcodeproj" \
             -scheme "Rick&Morty" \
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.5' \
