@@ -7,10 +7,17 @@ jobs:
     runs-on: macos-15
     steps:
       - name: Get the code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Which Xcode is active
         run: xcodebuild -version
+
+      - name: Cache SPM
+        uses: actions/cache@v6
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData/**/SourcePackages
+          key: spm-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: spm-
 
       - name: Run unit tests
         run: |
