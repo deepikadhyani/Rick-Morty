@@ -462,7 +462,7 @@ final class CharacterListViewModelTests: XCTestCase {
         
         // Assert
         if case .loaded(let characters) = sut.state {
-            XCTAssertEqual(characters.count, 999)
+            XCTAssertEqual(characters.count, 2)
         } else {
             XCTFail("Expected .loaded state but got \(sut.state)")
         }
